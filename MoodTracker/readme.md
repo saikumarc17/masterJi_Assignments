@@ -26,3 +26,9 @@ To load test data into the application, follow these steps:
    ```javascript
    localStorage.moodTracker = JSON.stringify(str);
    ```
+
+## Deployment
+
+The application is live at:
+
+🔗 **[Live Deployment URL](https://masterjiprojectsdashbard.netlify.app/moodtracker/)**
