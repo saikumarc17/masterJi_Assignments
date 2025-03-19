@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mood Tracker</title>
+        <!-- for geerating bar graph -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    </head>
+    <body class="bg-gray-900 text-white max-w-[80vw] mx-auto"> 
+                 
+            <h1 class="text-3xl font-bold py-3" >Mood Tracker</h1>
+
+        <main>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-5">
+                <!-- for getting used mood data  -->
+                <div class="bg-gray-700 p-3 rounded" >
+                    <h3 class="text-xl my-3 mx-1" >How are you feeling today?</h3>
+                    <div class="my-4" >
+                        <button class="text-4xl emoji hover:scale-125  " id="excited" >🤩</button>
+                        <button class="text-4xl emoji hover:scale-125" id="happy" >😀</button>
+                        <button class="text-4xl emoji hover:scale-125" id="neutral" >😐</button>
+                        <button class="text-4xl emoji hover:scale-125" id="sad" >😢</button>
+                    </div>
+                    <div>
+                        <h4 class="my-3 mx-1" >Add a note (optional)</h4>
+                        <textarea 
+                        class="border-gray-600 border rounded-lg w-full my-1 px-2 py-1"
+                        placeholder="What's on your mind?" 
+                        rows="4"                                
+                        name="" id="moodNote"></textarea>
+                        <button class="w-full bg-emerald-500 
+                        py-2 rounded mt-2
+                        hover:bg-emerald-600 "
+                        id="saveMood"
+                        >Save Mood</button>
+                    </div>
+                </div>
+
+                <!-- barchart -->
+                <div class="bg-gray-700 p-3 rounded" >
+                    <!-- using canva tag to plot barchart using chart js -->
+                    <canvas id="moodchart" ></canvas>
+
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 place-items-center mt-3" >
+                        <div class="bg-gray-600 w-50 p-2 py-3 rounded" >
+                            <p>Total Entries</p>
+                            <h2 class="text-2xl" id="totalEntries" >1</h2>
+                        </div>
+                        <div class="bg-gray-600 w-50 p-2 py-3 rounded" >
+                            <p>Most Common</p>
+                            <h2 class="text-2xl" id="mostCommon" >excited</h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-5" >
+                <div class="my-2 bg-gray-700 rounded p-2">
+                    <h2 class="text-2xl mx-2 my-2">Recent Moods</h2>
+                    
+                    <!-- updating latest mmod timelines -->
+                    <div class="flex flex-col-reverse max-h-[400px] overflow-auto" id="timeLineFeed">
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script type="module" src="script.js" defer></script>
+        <script type="module" src="chartCode.js" defer ></script>
+    </body>
+</html>
